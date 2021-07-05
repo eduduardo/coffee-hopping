@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D91" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CoffeeShop" representedClassName="CoffeeShop" syncable="YES" codeGenerationType="class">
+        <attribute name="address" optional="YES" attributeType="String"/>
+        <attribute name="createdAt" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="latitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="longitude" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="phone" optional="YES" attributeType="String"/>
+        <attribute name="placeId" optional="YES" attributeType="String"/>
+        <attribute name="visitedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="photos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Photo" inverseName="coffeeShop" inverseEntity="Photo"/>
+        <relationship name="reviews" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Review" inverseName="coffeeShop" inverseEntity="Review"/>
+    </entity>
+    <entity name="Photo" representedClassName="Photo" syncable="YES" codeGenerationType="class">
+        <attribute name="media" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="photoReference" attributeType="String"/>
+        <relationship name="coffeeShop" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoffeeShop" inverseName="photos" inverseEntity="CoffeeShop"/>
+    </entity>
+    <entity name="Review" representedClassName="Review" syncable="YES" codeGenerationType="class">
+        <attribute name="author" optional="YES" attributeType="String"/>
+        <attribute name="avatar" optional="YES" attributeType="String"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="rating" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="text" optional="YES" attributeType="String"/>
+        <relationship name="coffeeShop" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CoffeeShop" inverseName="reviews" inverseEntity="CoffeeShop"/>
+    </entity>
+    <elements>
+        <element name="CoffeeShop" positionX="-85.17388916015625" positionY="-49.17132568359375" width="128" height="193"/>
+        <element name="Photo" positionX="220.8546142578125" positionY="-50.89756774902344" width="128" height="88"/>
+        <element name="Review" positionX="259.973388671875" positionY="234.5723266601562" width="128" height="133"/>
+    </elements>
+</model>
